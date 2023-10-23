@@ -1,0 +1,71 @@
+﻿@page "/counter"
+
+@page "/"
+
+<PageTitle>Index</PageTitle>
+<h3>Infragistics Blazor DataGrid</h3>
+<br />
+<IgbDataGrid Height="100%" Width="100%"
+             RowHeight="50"
+             DataSource="@dataSource"
+             AutoGenerateColumns="false"
+             IsColumnOptionsEnabled="true"
+             IsGroupCollapsable="true"
+             ActivationMode="GridActivationMode.Cell"
+             SummaryScope="@SummaryScope.Root"
+             GroupSummaryDisplayMode="@GroupSummaryDisplayMode.RowBottom"
+             GroupHeaderDisplayMode="@GroupHeaderDisplayMode.Combined"
+             CornerRadiusTopLeft="0"
+             CornerRadiusTopRight="0"
+             ColumnMovingSeparatorWidth="2"
+             ColumnMovingMode="ColumnMovingMode.Deferred"
+             ColumnMovingAnimationMode="ColumnMovingAnimationMode.SlideOver"
+             ColumnShowingAnimationMode="ColumnShowingAnimationMode.SlideFromRightAndFadeIn"
+             ColumnHidingAnimationMode="ColumnHidingAnimationMode.SlideToRightAndFadeOut"
+             SelectionMode="DataGridSelectionMode.SingleRow">
+
+    <IgbTextColumn Width="@("*>120")" Field="Id" />
+    <IgbTextColumn Width="@("*>120")" Field="Name" IsEditable="false" />
+</IgbDataGrid>
+
+
+<br />
+<style>
+    .grid {
+        --header-background: green;
+        --header-text-color: #FFF;
+    }
+</style>
+
+@code
+{
+    List<Employee> dataSource = new List<Employee>
+    {
+        new Employee { Id = "1", Name = "James"},
+        new Employee { Id = "2", Name = "John" },
+        new Employee { Id = "3", Name = "Robert" },
+        new Employee { Id = "4", Name = "Anvi" },
+        new Employee { Id = "5", Name = "Chandradev" },
+    };
+
+    public class Employee
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+    }
+
+   
+
+    protected override void OnInitialized()
+    {
+        List<Employee> dataSource = new List<Employee>
+    {
+        new Employee { Id = "1", Name = "James"},
+        new Employee { Id = "2", Name = "John" },
+        new Employee { Id = "3", Name = "Robert" },
+    };
+
+    }
+
+}
+

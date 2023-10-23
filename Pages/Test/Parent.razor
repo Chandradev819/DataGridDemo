@@ -1,0 +1,26 @@
+﻿@page "/parent"
+
+@{
+    List<DataGridComponent.Employee> dataSource = new List<DataGridComponent.Employee>
+    {
+        new DataGridComponent.Employee { Id = "1", Name = "James" },
+        new DataGridComponent.Employee { Id = "2", Name = "John" },
+        new DataGridComponent.Employee { Id = "3", Name = "Robert" },
+    };
+
+    string columnToDisplay = "Name"; // Variable to be used in template
+}
+
+<PageTitle>Parent Component</PageTitle>
+<h3>Infragistics Blazor DataGrid</h3> <br />
+
+<DataGridComponent Data="@dataSource" ColumnToDisplay="@columnToDisplay" />
+
+@code
+{
+    public class Employee
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+    }
+}

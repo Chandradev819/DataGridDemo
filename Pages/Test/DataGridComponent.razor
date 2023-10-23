@@ -1,0 +1,26 @@
+﻿@code {
+    [Parameter]
+    public List<Employee> Data { get; set; }
+
+    [Parameter]
+    public string ColumnToDisplay { get; set; }
+}
+
+@ColumnToDisplay
+<div class="container vertical">
+    <div class="container vertical fill">
+        <IgbDataGrid AutoGenerateColumns=false DataSource="@Data">
+            @*<IgbColumn Field="@ColumnToDisplay" Header="@ColumnToDisplay" Filterable=true />*@
+            <IgbColumn Field="Name" Header="Name" Filterable=true />
+        </IgbDataGrid>
+    </div>
+</div>
+
+@code
+{
+    public class Employee
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+    }
+}

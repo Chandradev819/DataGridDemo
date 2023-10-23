@@ -1,0 +1,56 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+<h3>Infragistics Blazor DataGrid</h3> <br />
+
+<div class="container vertical">
+    <div class="container vertical fill">
+        <IgbDataGrid Class="grid" AutoGenerateColumns="false"
+            PageSize="4" IsPagerVisible=true
+            DataSource="@dataSource">
+            <IgbTextColumn Width="@("*>120")" Field="Id" />
+
+            <IgbTextColumn Width="@("*>120")" Field="Name"  IsEditable="false" />
+
+        </IgbDataGrid>
+    </div>
+</div>
+<br />
+
+<br />
+<style>
+    .grid {
+        --header-background: green;
+        --header-text-color: #FFF;
+    }
+</style>
+
+@code
+{
+    List<Employee> dataSource = new List<Employee>
+    {
+        new Employee { Id = "1", Name = "James"},
+        new Employee { Id = "2", Name = "John" },
+        new Employee { Id = "3", Name = "Robert" },
+        new Employee { Id = "4", Name = "Anvi" },
+        new Employee { Id = "5", Name = "Chandradev" },
+    };
+
+    public class Employee
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+    }
+
+    protected override void OnInitialized()
+    {
+        List<Employee> dataSource = new List<Employee>
+    {
+        new Employee { Id = "1", Name = "James"},
+        new Employee { Id = "2", Name = "John" },
+        new Employee { Id = "3", Name = "Robert" },
+    };
+       
+    }
+
+}
